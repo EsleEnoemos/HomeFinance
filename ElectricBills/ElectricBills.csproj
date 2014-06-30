@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ED50C0DA-CC5F-47A6-996A-655084325CDD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ElectricBills</RootNamespace>
+    <AssemblyName>ElectricBills</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FileDlgExtenders">
+      <HintPath>..\References\FileDlgExtenders.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="SpreadsheetGear">
+      <HintPath>..\References\SpreadsheetGear.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="ElectricBillExcelProperties.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ElectricBillExcelProperties.designer.cs">
+      <DependentUpon>ElectricBillExcelProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ElectricBillsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ElectricBillsControl.designer.cs">
+      <DependentUpon>ElectricBillsControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MultilineInputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MultilineInputForm.designer.cs">
+      <DependentUpon>MultilineInputForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NumericTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ElectricBillExcelProperties.resx">
+      <DependentUpon>ElectricBillExcelProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElectricBillsControl.resx">
+      <DependentUpon>ElectricBillsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MultilineInputForm.resx">
+      <DependentUpon>MultilineInputForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HomeFinance.Shared\HomeFinance.Shared.csproj">
+      <Project>{DDB5B738-4116-465C-9A4C-3E7E5B7797FE}</Project>
+      <Name>HomeFinance.Shared</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\HomeFinance\HomeFinance.csproj">
+      <Project>{2ADB4928-40B2-4475-A3FE-2A3D3763A996}</Project>
+      <Name>HomeFinance</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetDir)ElectricBills.dll" "C:\ProgramData\HomeFinancePlugins\ElectricBills"
+</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
