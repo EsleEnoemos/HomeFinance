@@ -73,7 +73,7 @@ namespace HomeFinance {
 			return wc;
 		}
 
-		private static string GetUsername() {
+		internal static string GetUsername() {
 			try {
 				string un = ConfigurationManager.AppSettings[ "AccountName" ];
 				if( !string.IsNullOrEmpty( un ) ) {

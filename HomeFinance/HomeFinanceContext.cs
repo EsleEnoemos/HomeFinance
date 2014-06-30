@@ -15,7 +15,8 @@ namespace HomeFinance {
 		internal HomeFinanceContext( Form1 form, TreeNode treeNode, MenuStrip mainMenu ) {
 			mainForm = form;
 			TreeNode = treeNode;
-			CurrentUsername = Environment.UserName;
+			//CurrentUsername = Environment.UserName;
+			CurrentUsername = JSONWebServiceCaller.GetUsername();
 			Settings = ContentPersistentForm.Settings.PluginSettings;
 			MainMenu = mainMenu;
 			ServiceBaseURL = ConfigurationManager.AppSettings[ "ServerURL" ];
