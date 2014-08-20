@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1EE4458C-181D-412D-8628-7680732D9E92}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Flygaretorpet.se</RootNamespace>
+    <AssemblyName>Flygaretorpet.se</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.0.8.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Caller.cs" />
+    <Compile Include="Classes\BaseDistinctCollection.cs" />
+    <Compile Include="Classes\Class1.cs" />
+    <Compile Include="Classes\House.cs" />
+    <Compile Include="Classes\Invoice.cs" />
+    <Compile Include="Classes\InvoicePayment.cs" />
+    <Compile Include="Classes\IUniqueID.cs" />
+    <Compile Include="GUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI.Designer.cs">
+      <DependentUpon>GUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="InvoiceControl.Designer.cs">
+      <DependentUpon>InvoiceControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InvoiceDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InvoiceDialog.Designer.cs">
+      <DependentUpon>InvoiceDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PaymentDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaymentDialog.Designer.cs">
+      <DependentUpon>PaymentDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Plug.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HomeFinance.Shared\HomeFinance.Shared.csproj">
+      <Project>{ddb5b738-4116-465c-9a4c-3e7e5b7797fe}</Project>
+      <Name>HomeFinance.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HomeFinance\HomeFinance.csproj">
+      <Project>{2adb4928-40b2-4475-a3fe-2a3d3763a996}</Project>
+      <Name>HomeFinance</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GUI.resx">
+      <DependentUpon>GUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InvoiceControl.resx">
+      <DependentUpon>InvoiceControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InvoiceDialog.resx">
+      <DependentUpon>InvoiceDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaymentDialog.resx">
+      <DependentUpon>PaymentDialog.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy "$(TargetDir)Flygaretorpet.se.dll" "C:\ProgramData\HomeFinancePlugins\Flygaretorpet.se"</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

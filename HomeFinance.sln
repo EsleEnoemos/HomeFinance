@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeFinance", "HomeFinance\HomeFinance.csproj", "{2ADB4928-40B2-4475-A3FE-2A3D3763A996}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeFinanceServer", "HomeFinanceServer\HomeFinanceServer.csproj", "{A69F7290-6256-4488-AEAB-69B644E03A91}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeFinance.Shared", "HomeFinance.Shared\HomeFinance.Shared.csproj", "{DDB5B738-4116-465C-9A4C-3E7E5B7797FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flygaretorpet.se", "Flygaretorpet.se\Flygaretorpet.se.csproj", "{1EE4458C-181D-412D-8628-7680732D9E92}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,6 +87,16 @@ Global
 		{DDB5B738-4116-465C-9A4C-3E7E5B7797FE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{DDB5B738-4116-465C-9A4C-3E7E5B7797FE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{DDB5B738-4116-465C-9A4C-3E7E5B7797FE}.Release|x86.ActiveCfg = Release|Any CPU
+		{1EE4458C-181D-412D-8628-7680732D9E92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EE4458C-181D-412D-8628-7680732D9E92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EE4458C-181D-412D-8628-7680732D9E92}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{1EE4458C-181D-412D-8628-7680732D9E92}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{1EE4458C-181D-412D-8628-7680732D9E92}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1EE4458C-181D-412D-8628-7680732D9E92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EE4458C-181D-412D-8628-7680732D9E92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EE4458C-181D-412D-8628-7680732D9E92}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{1EE4458C-181D-412D-8628-7680732D9E92}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{1EE4458C-181D-412D-8628-7680732D9E92}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
