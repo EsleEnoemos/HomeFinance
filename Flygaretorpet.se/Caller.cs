@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Configuration;
 using System.IO;
 using System.Net;
 using System.Text;
@@ -11,50 +10,12 @@ using Newtonsoft.Json;
 namespace Flygaretorpet.se {
 	internal static class Caller {
 		private static string authCookie;
-		#region public static string URL
-		/// <summary>
-		/// Gets the URL of the Caller
-		/// </summary>
-		/// <value></value>
-		public static string URL {
-			get {
-				if( _uRL == null ) {
-					_uRL = ConfigurationManager.AppSettings[ "Flygaretorpet.URL" ];
-					if( !string.IsNullOrEmpty( _uRL ) ) {
-						_uRL = string.Format( "http://{0}/", _uRL );
-					}
-				}
-				return _uRL;
-			}
-		}
-		private static string _uRL;
-		#endregion
-		#region public static string EMail
-		/// <summary>
-		/// Gets the EMail of the Caller
-		/// </summary>
-		/// <value></value>
-		public static string EMail {
-			get { return _eMail ?? (_eMail = ConfigurationManager.AppSettings[ "Flygaretorpet.EMail" ]); }
-		}
-		private static string _eMail;
-		#endregion
-		#region public static string Password
-		/// <summary>
-		/// Gets the Password of the Caller
-		/// </summary>
-		/// <value></value>
-		public static string Password {
-			get { return _password ?? (_password = ConfigurationManager.AppSettings[ "Flygaretorpet.Password" ]); }
-		}
-		private static string _password;
-		#endregion
 
 		public static T Get<T>( string service, NameValueCollection queryString = null ) where T : class, new() {
 			if( authCookie == null ) {
 				authCookie = Login();
 			}
-			string url = string.Format( "{0}/Service/{1}", URL, service );
+			string url = string.Format( "{0}/Service/{1}", Plug.URL, service );
 			if( queryString != null && queryString.Count > 0 ) {
 				List<string> list = new List<string>();
 				foreach( string key in queryString.AllKeys ) {
@@ -77,7 +38,7 @@ namespace Flygaretorpet.se {
 			req.UserAgent = "Mozilla/5.0 (Windows NT 6.3; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0 HomeFinance";
 			req.AllowAutoRedirect = false;
 			CookieContainer cookies = new CookieContainer( 1 );
-			Cookie c = new Cookie( ".ASPXAUTH", authCookie, "/", URL.Replace( "http:", "" ).Replace( "/", "" ) );
+			Cookie c = new Cookie( ".ASPXAUTH", authCookie, "/", Plug.URL.Replace( "http:", "" ).Replace( "/", "" ) );
 			cookies.Add( c );
 			req.CookieContainer = cookies;
 			string result;
@@ -107,7 +68,7 @@ namespace Flygaretorpet.se {
 			if( authCookie == null ) {
 				authCookie = Login();
 			}
-			string url = string.Format( "{0}/Service/{1}", URL, service );
+			string url = string.Format( "{0}/Service/{1}", Plug.URL, service );
 			if( queryString != null && queryString.Count > 0 ) {
 				List<string> list = new List<string>();
 				foreach( string key in queryString.AllKeys ) {
@@ -145,7 +106,7 @@ namespace Flygaretorpet.se {
 			req.UserAgent = "Mozilla/5.0 (Windows NT 6.3; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0 HomeFinance";
 			req.AllowAutoRedirect = false;
 			CookieContainer cookies = new CookieContainer( 1 );
-			Cookie c = new Cookie( ".ASPXAUTH", authCookie, "/", URL.Replace( "http:", "" ).Replace( "/", "" ) );
+			Cookie c = new Cookie( ".ASPXAUTH", authCookie, "/", Plug.URL.Replace( "http:", "" ).Replace( "/", "" ) );
 			cookies.Add( c );
 			req.CookieContainer = cookies;
 			string result;
@@ -177,10 +138,10 @@ namespace Flygaretorpet.se {
 			}
 		}
 
-		private static string Login() {
-			HttpWebRequest req = HttpWebRequest.CreateHttp( string.Format( "{0}Login.aspx", URL ) );
+		internal static string Login() {
+			HttpWebRequest req = HttpWebRequest.CreateHttp( string.Format( "{0}Login.aspx", Plug.URL ) );
 			req.Method = "POST";
-			byte[] bytes = string.Format( "email={0}&password={1}", EMail, Password ).ToByteArray();
+			byte[] bytes = string.Format( "email={0}&password={1}", Plug.EMail, Plug.Password ).ToByteArray();
 			req.ContentLength = bytes.Length;
 			req.KeepAlive = false;
 			req.UserAgent = "Mozilla/5.0 (Windows NT 6.3; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0";
