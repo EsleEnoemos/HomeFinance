@@ -55,7 +55,7 @@
 			this.pnlPayments.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.pnlPayments.Location = new System.Drawing.Point(0, 33);
 			this.pnlPayments.Name = "pnlPayments";
-			this.pnlPayments.Size = new System.Drawing.Size(555, 51);
+			this.pnlPayments.Size = new System.Drawing.Size(555, 78);
 			this.pnlPayments.TabIndex = 1;
 			// 
 			// InvoiceControl
@@ -67,7 +67,7 @@
 			this.Controls.Add(this.pnlPayments);
 			this.Controls.Add(this.panel1);
 			this.Name = "InvoiceControl";
-			this.Size = new System.Drawing.Size(555, 84);
+			this.Size = new System.Drawing.Size(555, 111);
 			this.Load += new System.EventHandler(this.InvoiceControl_Load);
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();

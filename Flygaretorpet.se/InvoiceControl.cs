@@ -24,8 +24,19 @@ namespace Flygaretorpet.se {
 			if( invoice == null ) {
 				return;
 			}
-			lblName.Text = string.Format( "{0}, {1}, {2} kr", invoice.Comment, invoice.Date.ToString( "yyyy-MM-dd" ), invoice.Amount );
+			lblName.Text = string.Format( "{0}, {1}, {2} kr", invoice.Name, invoice.Date.ToString( "yyyy-MM-dd" ), invoice.Amount );
 			int y = 0;
+			if( !string.IsNullOrEmpty( invoice.Comment ) ) {
+				using( Font font = new Font( "Microsoft Sans Serif", 8, FontStyle.Italic ) ) {
+					Label l = new Label { Text = invoice.Comment, Top = y, Left = 10, Font = font, AutoSize = true, Width = pnlPayments.Width - 5, Anchor = AnchorStyles.Left | AnchorStyles.Top | AnchorStyles.Right };
+					using( Graphics gr = l.CreateGraphics() ) {
+						SizeF measureString = gr.MeasureString( invoice.Comment, font );
+						l.Height = (int)(measureString.Height + 5);
+					}
+					pnlPayments.Controls.Add( l );
+					y += l.Height + 5;
+				}
+			}
 			using( Font font = new Font( "Microsoft Sans Serif", 9 ) ) {
 				Label l;
 				foreach( InvoicePayment payment in invoice.Payments ) {

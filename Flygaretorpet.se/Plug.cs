@@ -96,10 +96,11 @@ namespace Flygaretorpet.se {
 				return;
 			}
 			House house = node.Tag as House;
-			if( house == null ) {
-				return;
-			}
 			gui.Show( house );
+			//if( house == null ) {
+			//	gui.Controls.Clear();
+			//	return;
+			//}
 		}
 		public void UnloadControl( UnloadFinanceControlEventArgs unloadFinanceControlEventArgs ) {
 			ctx.TreeNode.TreeView.AfterSelect += TreeViewOnAfterSelect;

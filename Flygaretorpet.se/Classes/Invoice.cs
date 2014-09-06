@@ -47,6 +47,17 @@ namespace Flygaretorpet.se.Classes {
 		}
 		private string _comment;
 		#endregion
+		#region public string Name
+		/// <summary>
+		/// Get/Sets the Name of the Invoice
+		/// </summary>
+		/// <value></value>
+		public string Name {
+			get { return _name; }
+			set { _name = value; }
+		}
+		private string _name;
+		#endregion
 
 		#region public List<InvoicePayment> Payments
 		/// <summary>
@@ -75,16 +86,18 @@ namespace Flygaretorpet.se.Classes {
 		/// </summary>
 		public Invoice() { }
 		#endregion
-		#region public Invoice( int id, double amount, DateTime date, string comment )
+		#region public Invoice( int id, string name, double amount, DateTime date, string comment )
 		/// <summary>
 		/// Initializes a new instance of the <b>Invoice</b> class.
 		/// </summary>
 		/// <param name="id"></param>
+		/// <param name="name"></param>
 		/// <param name="amount"></param>
 		/// <param name="date"></param>
 		/// <param name="comment"></param>
-		public Invoice( int id, double amount, DateTime date, string comment ) {
+		public Invoice( int id, string name, double amount, DateTime date, string comment ) {
 			_iD = id;
+			_name = name;
 			_amount = amount;
 			_date = date;
 			_comment = comment;

@@ -15,6 +15,12 @@ namespace Flygaretorpet.se {
 			btnAddInvoice.Visible = true;
 			currentHouse = house;
 			panel1.Controls.Clear();
+			if( house == null ) {
+				btnAddInvoice.Visible = false;
+				lblHouseName.Visible = false;
+				lblTotalBalance.Visible = false;
+				return;
+			}
 			lblHouseName.Text = house.Name;
 			lblHouseName.Visible = true;
 			NameValueCollection qs = new NameValueCollection();

@@ -7,6 +7,7 @@ namespace Flygaretorpet.se {
 		public Invoice Invoice {
 			get {
 				return new Invoice {
+					Name = tbName.Text,
 					Amount = tbAmount.Text.ToDouble(),
 					Date = dateTimePicker1.Value,
 					Comment = tbComment.Text.Trim()
@@ -39,8 +40,8 @@ namespace Flygaretorpet.se {
 				e.Cancel = true;
 				return;
 			}
-			if( string.IsNullOrEmpty( tbComment.Text.Trim() ) ) {
-				MessageBox.Show( "Please enter a comment" );
+			if( string.IsNullOrEmpty( tbName.Text.Trim() ) ) {
+				MessageBox.Show( "Please enter a name" );
 				e.Cancel = true;
 				return;
 			}
