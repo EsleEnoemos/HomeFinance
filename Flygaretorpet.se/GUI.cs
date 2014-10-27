@@ -56,6 +56,7 @@ namespace Flygaretorpet.se {
 			data.Add( "date", i.Date.ToString( "yyyy-MM-dd" ) );
 			data.Add( "comment", i.Comment );
 			data.Add( "houseID", currentHouse.ID );
+			data.Add( "name", i.Name );
 			Invoice ni = Caller.Post<Invoice>( "AddInvoice", data );
 			if( ni != null ) {
 				ShowCurrent();

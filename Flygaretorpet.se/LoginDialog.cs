@@ -1,7 +1,9 @@
 ﻿using System.Windows.Forms;
+using HomeFinance;
 
 namespace Flygaretorpet.se {
 	public partial class LoginDialog : Form {
+		private HomeFinanceContext ctx;
 		#region public string Server
 		/// <summary>
 		/// Gets the Server of the LoginDialog
@@ -48,7 +50,11 @@ namespace Flygaretorpet.se {
 		}
 		#endregion
 
-		public LoginDialog() {
+		public LoginDialog()
+			: this(null) {
+		}
+		public LoginDialog( HomeFinanceContext ctx ) {
+			this.ctx = ctx;
 			InitializeComponent();
 		}
 
@@ -81,6 +87,28 @@ namespace Flygaretorpet.se {
 				e.Cancel = true;
 				return;
 			}
+			if( ctx != null ) {
+				if( checkBox1.Checked ) {
+					NameValueList settings = new NameValueList();
+					settings[ "Flygaretorpet.se_Server" ] = tbServer.Text;
+					settings[ "Flygaretorpet.se_Email" ] = tbEmail.Text;
+					settings[ "Flygaretorpet.se_Password" ] = tbPassword.Text;
+					ctx.Settings.Set( this, settings );
+					return;
+				}
+				ctx.Settings.Set( this, new NameValueList());
+			}
+		}
+
+		private void LoginDialog_Load( object sender, System.EventArgs e ) {
+			if( ctx == null ) {
+				return;
+			}
+			NameValueList settings = ctx.Settings.Get( this );
+			tbServer.Text = settings[ "Flygaretorpet.se_Server" ];
+			tbEmail.Text = settings[ "Flygaretorpet.se_Email" ];
+			tbPassword.Text = settings[ "Flygaretorpet.se_Password" ];
+			checkBox1.Checked = !string.IsNullOrEmpty( tbServer.Text );
 		}
 	}
 }

@@ -62,7 +62,7 @@ namespace Flygaretorpet.se {
 				gui.Dispose();
 			}
 			if( string.IsNullOrEmpty( URL ) ) {
-				LoginDialog d = new LoginDialog();
+				LoginDialog d = new LoginDialog( ctx );
 				while( d.ShowDialog( ctx.MainMenu ) == DialogResult.OK ) {
 					_uRL = string.Format( "http://{0}/", d.Server );
 					_eMail = d.EMail;

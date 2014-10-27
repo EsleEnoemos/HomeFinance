@@ -32,6 +32,7 @@
 			this.btnOK = new System.Windows.Forms.Button();
 			this.btnCancel = new System.Windows.Forms.Button();
 			this.lblLoginFailed = new System.Windows.Forms.Label();
+			this.checkBox1 = new System.Windows.Forms.CheckBox();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -88,8 +89,9 @@
 			// 
 			// btnOK
 			// 
+			this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-			this.btnOK.Location = new System.Drawing.Point(169, 89);
+			this.btnOK.Location = new System.Drawing.Point(169, 111);
 			this.btnOK.Name = "btnOK";
 			this.btnOK.Size = new System.Drawing.Size(75, 23);
 			this.btnOK.TabIndex = 6;
@@ -98,8 +100,9 @@
 			// 
 			// btnCancel
 			// 
+			this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-			this.btnCancel.Location = new System.Drawing.Point(250, 88);
+			this.btnCancel.Location = new System.Drawing.Point(250, 110);
 			this.btnCancel.Name = "btnCancel";
 			this.btnCancel.Size = new System.Drawing.Size(75, 23);
 			this.btnCancel.TabIndex = 7;
@@ -108,15 +111,26 @@
 			// 
 			// lblLoginFailed
 			// 
+			this.lblLoginFailed.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.lblLoginFailed.AutoSize = true;
 			this.lblLoginFailed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.lblLoginFailed.ForeColor = System.Drawing.Color.Red;
-			this.lblLoginFailed.Location = new System.Drawing.Point(13, 97);
+			this.lblLoginFailed.Location = new System.Drawing.Point(13, 119);
 			this.lblLoginFailed.Name = "lblLoginFailed";
 			this.lblLoginFailed.Size = new System.Drawing.Size(77, 13);
 			this.lblLoginFailed.TabIndex = 8;
 			this.lblLoginFailed.Text = "Login failed!";
 			this.lblLoginFailed.Visible = false;
+			// 
+			// checkBox1
+			// 
+			this.checkBox1.AutoSize = true;
+			this.checkBox1.Location = new System.Drawing.Point(16, 92);
+			this.checkBox1.Name = "checkBox1";
+			this.checkBox1.Size = new System.Drawing.Size(102, 17);
+			this.checkBox1.TabIndex = 9;
+			this.checkBox1.Text = "Remember login";
+			this.checkBox1.UseVisualStyleBackColor = true;
 			// 
 			// LoginDialog
 			// 
@@ -124,7 +138,8 @@
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.CancelButton = this.btnCancel;
-			this.ClientSize = new System.Drawing.Size(337, 126);
+			this.ClientSize = new System.Drawing.Size(337, 148);
+			this.Controls.Add(this.checkBox1);
 			this.Controls.Add(this.lblLoginFailed);
 			this.Controls.Add(this.btnCancel);
 			this.Controls.Add(this.btnOK);
@@ -138,6 +153,7 @@
 			this.Name = "LoginDialog";
 			this.Text = "Enter connection details for Flygaretorpet.se";
 			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LoginDialog_FormClosing);
+			this.Load += new System.EventHandler(this.LoginDialog_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -154,5 +170,6 @@
 		private System.Windows.Forms.Button btnOK;
 		private System.Windows.Forms.Button btnCancel;
 		private System.Windows.Forms.Label lblLoginFailed;
+		private System.Windows.Forms.CheckBox checkBox1;
 	}
 }
