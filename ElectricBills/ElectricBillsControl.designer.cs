@@ -25,23 +25,37 @@
 		private void InitializeComponent() {
 			this.dpGuestLastReading = new System.Windows.Forms.DateTimePicker();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.tbTotalSum = new ElectricBills.NumericTextBox();
 			this.label10 = new System.Windows.Forms.Label();
+			this.tbPricePerkWh = new ElectricBills.NumericTextBox();
 			this.label5 = new System.Windows.Forms.Label();
+			this.tbTotalGroundFee = new ElectricBills.NumericTextBox();
+			this.tbTotalPriceElectricity = new ElectricBills.NumericTextBox();
+			this.tbTotalUsedkWh = new ElectricBills.NumericTextBox();
 			this.label4 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.btnSaveToExcel = new System.Windows.Forms.Button();
+			this.tbGuestTotalPriceIncVAT = new ElectricBills.NumericTextBox();
 			this.label18 = new System.Windows.Forms.Label();
+			this.tbGuestTotalPrice = new ElectricBills.NumericTextBox();
 			this.label17 = new System.Windows.Forms.Label();
+			this.tbGuestPriceGroundFeeIncVAT = new ElectricBills.NumericTextBox();
 			this.label16 = new System.Windows.Forms.Label();
+			this.tbGuestPriceGroundFee = new ElectricBills.NumericTextBox();
 			this.label15 = new System.Windows.Forms.Label();
+			this.tbGuestPriceElectricityIncVAT = new ElectricBills.NumericTextBox();
 			this.label14 = new System.Windows.Forms.Label();
+			this.tbGuestPriceElectricity = new ElectricBills.NumericTextBox();
 			this.label13 = new System.Windows.Forms.Label();
+			this.tbGuestPeriodUsedkWh = new ElectricBills.NumericTextBox();
 			this.label12 = new System.Windows.Forms.Label();
 			this.cbFeePart = new System.Windows.Forms.ComboBox();
 			this.label9 = new System.Windows.Forms.Label();
+			this.tbGuestCurrentReadingkWh = new ElectricBills.NumericTextBox();
 			this.label8 = new System.Windows.Forms.Label();
+			this.tbGuestLastReadingkWh = new ElectricBills.NumericTextBox();
 			this.label7 = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
 			this.dpGuestCurrentReading = new System.Windows.Forms.DateTimePicker();
@@ -54,20 +68,7 @@
 			this.label20 = new System.Windows.Forms.Label();
 			this.tbOCR = new System.Windows.Forms.TextBox();
 			this.tbTotalSumIncVAT = new ElectricBills.NumericTextBox();
-			this.tbGuestTotalPriceIncVAT = new ElectricBills.NumericTextBox();
-			this.tbGuestTotalPrice = new ElectricBills.NumericTextBox();
-			this.tbGuestPriceGroundFeeIncVAT = new ElectricBills.NumericTextBox();
-			this.tbGuestPriceGroundFee = new ElectricBills.NumericTextBox();
-			this.tbGuestPriceElectricityIncVAT = new ElectricBills.NumericTextBox();
-			this.tbGuestPriceElectricity = new ElectricBills.NumericTextBox();
-			this.tbGuestPeriodUsedkWh = new ElectricBills.NumericTextBox();
-			this.tbGuestCurrentReadingkWh = new ElectricBills.NumericTextBox();
-			this.tbGuestLastReadingkWh = new ElectricBills.NumericTextBox();
-			this.tbTotalSum = new ElectricBills.NumericTextBox();
-			this.tbPricePerkWh = new ElectricBills.NumericTextBox();
-			this.tbTotalGroundFee = new ElectricBills.NumericTextBox();
-			this.tbTotalPriceElectricity = new ElectricBills.NumericTextBox();
-			this.tbTotalUsedkWh = new ElectricBills.NumericTextBox();
+			this.cbAddVAT = new System.Windows.Forms.CheckBox();
 			this.groupBox1.SuspendLayout();
 			this.groupBox2.SuspendLayout();
 			this.SuspendLayout();
@@ -104,6 +105,19 @@
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "Totalpris (ex moms)";
 			// 
+			// tbTotalSum
+			// 
+			this.tbTotalSum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.tbTotalSum.Location = new System.Drawing.Point(174, 122);
+			this.tbTotalSum.Name = "tbTotalSum";
+			this.tbTotalSum.ReadOnly = true;
+			this.tbTotalSum.Size = new System.Drawing.Size(174, 20);
+			this.tbTotalSum.TabIndex = 22;
+			this.tbTotalSum.TabStop = false;
+			this.tbTotalSum.Text = "0";
+			this.tbTotalSum.Value = 0D;
+			// 
 			// label10
 			// 
 			this.label10.AutoSize = true;
@@ -113,6 +127,19 @@
 			this.label10.TabIndex = 21;
 			this.label10.Text = "Totalsumma (ex. moms)";
 			// 
+			// tbPricePerkWh
+			// 
+			this.tbPricePerkWh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.tbPricePerkWh.Location = new System.Drawing.Point(174, 96);
+			this.tbPricePerkWh.Name = "tbPricePerkWh";
+			this.tbPricePerkWh.ReadOnly = true;
+			this.tbPricePerkWh.Size = new System.Drawing.Size(174, 20);
+			this.tbPricePerkWh.TabIndex = 20;
+			this.tbPricePerkWh.TabStop = false;
+			this.tbPricePerkWh.Text = "0";
+			this.tbPricePerkWh.Value = 0D;
+			// 
 			// label5
 			// 
 			this.label5.AutoSize = true;
@@ -121,6 +148,42 @@
 			this.label5.Size = new System.Drawing.Size(105, 13);
 			this.label5.TabIndex = 19;
 			this.label5.Text = "Pris/kWh (ex. moms)";
+			// 
+			// tbTotalGroundFee
+			// 
+			this.tbTotalGroundFee.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.tbTotalGroundFee.Location = new System.Drawing.Point(174, 69);
+			this.tbTotalGroundFee.Name = "tbTotalGroundFee";
+			this.tbTotalGroundFee.Size = new System.Drawing.Size(294, 20);
+			this.tbTotalGroundFee.TabIndex = 3;
+			this.tbTotalGroundFee.Text = "0";
+			this.tbTotalGroundFee.Value = 0D;
+			this.tbTotalGroundFee.TextChanged += new System.EventHandler(this.TextBoxChanged);
+			// 
+			// tbTotalPriceElectricity
+			// 
+			this.tbTotalPriceElectricity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.tbTotalPriceElectricity.Location = new System.Drawing.Point(174, 43);
+			this.tbTotalPriceElectricity.Name = "tbTotalPriceElectricity";
+			this.tbTotalPriceElectricity.Size = new System.Drawing.Size(294, 20);
+			this.tbTotalPriceElectricity.TabIndex = 2;
+			this.tbTotalPriceElectricity.Text = "0";
+			this.tbTotalPriceElectricity.Value = 0D;
+			this.tbTotalPriceElectricity.TextChanged += new System.EventHandler(this.TextBoxChanged);
+			// 
+			// tbTotalUsedkWh
+			// 
+			this.tbTotalUsedkWh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.tbTotalUsedkWh.Location = new System.Drawing.Point(174, 17);
+			this.tbTotalUsedkWh.Name = "tbTotalUsedkWh";
+			this.tbTotalUsedkWh.Size = new System.Drawing.Size(294, 20);
+			this.tbTotalUsedkWh.TabIndex = 1;
+			this.tbTotalUsedkWh.Text = "0";
+			this.tbTotalUsedkWh.Value = 0D;
+			this.tbTotalUsedkWh.TextChanged += new System.EventHandler(this.TextBoxChanged);
 			// 
 			// label4
 			// 
@@ -196,6 +259,19 @@
 			this.btnSaveToExcel.UseVisualStyleBackColor = true;
 			this.btnSaveToExcel.Click += new System.EventHandler(this.btnSaveToExcel_Click);
 			// 
+			// tbGuestTotalPriceIncVAT
+			// 
+			this.tbGuestTotalPriceIncVAT.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.tbGuestTotalPriceIncVAT.Location = new System.Drawing.Point(221, 303);
+			this.tbGuestTotalPriceIncVAT.Name = "tbGuestTotalPriceIncVAT";
+			this.tbGuestTotalPriceIncVAT.ReadOnly = true;
+			this.tbGuestTotalPriceIncVAT.Size = new System.Drawing.Size(127, 20);
+			this.tbGuestTotalPriceIncVAT.TabIndex = 42;
+			this.tbGuestTotalPriceIncVAT.TabStop = false;
+			this.tbGuestTotalPriceIncVAT.Text = "0";
+			this.tbGuestTotalPriceIncVAT.Value = 0D;
+			// 
 			// label18
 			// 
 			this.label18.AutoSize = true;
@@ -204,6 +280,19 @@
 			this.label18.Size = new System.Drawing.Size(117, 13);
 			this.label18.TabIndex = 41;
 			this.label18.Text = "Totalsumma (ink moms)";
+			// 
+			// tbGuestTotalPrice
+			// 
+			this.tbGuestTotalPrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.tbGuestTotalPrice.Location = new System.Drawing.Point(221, 277);
+			this.tbGuestTotalPrice.Name = "tbGuestTotalPrice";
+			this.tbGuestTotalPrice.ReadOnly = true;
+			this.tbGuestTotalPrice.Size = new System.Drawing.Size(127, 20);
+			this.tbGuestTotalPrice.TabIndex = 40;
+			this.tbGuestTotalPrice.TabStop = false;
+			this.tbGuestTotalPrice.Text = "0";
+			this.tbGuestTotalPrice.Value = 0D;
 			// 
 			// label17
 			// 
@@ -214,6 +303,19 @@
 			this.label17.TabIndex = 39;
 			this.label17.Text = "Totalsumma (ex moms)";
 			// 
+			// tbGuestPriceGroundFeeIncVAT
+			// 
+			this.tbGuestPriceGroundFeeIncVAT.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.tbGuestPriceGroundFeeIncVAT.Location = new System.Drawing.Point(221, 253);
+			this.tbGuestPriceGroundFeeIncVAT.Name = "tbGuestPriceGroundFeeIncVAT";
+			this.tbGuestPriceGroundFeeIncVAT.ReadOnly = true;
+			this.tbGuestPriceGroundFeeIncVAT.Size = new System.Drawing.Size(127, 20);
+			this.tbGuestPriceGroundFeeIncVAT.TabIndex = 36;
+			this.tbGuestPriceGroundFeeIncVAT.TabStop = false;
+			this.tbGuestPriceGroundFeeIncVAT.Text = "0";
+			this.tbGuestPriceGroundFeeIncVAT.Value = 0D;
+			// 
 			// label16
 			// 
 			this.label16.AutoSize = true;
@@ -222,6 +324,19 @@
 			this.label16.Size = new System.Drawing.Size(133, 13);
 			this.label16.TabIndex = 35;
 			this.label16.Text = "Pris grundavgift (ink moms)";
+			// 
+			// tbGuestPriceGroundFee
+			// 
+			this.tbGuestPriceGroundFee.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.tbGuestPriceGroundFee.Location = new System.Drawing.Point(221, 227);
+			this.tbGuestPriceGroundFee.Name = "tbGuestPriceGroundFee";
+			this.tbGuestPriceGroundFee.ReadOnly = true;
+			this.tbGuestPriceGroundFee.Size = new System.Drawing.Size(127, 20);
+			this.tbGuestPriceGroundFee.TabIndex = 34;
+			this.tbGuestPriceGroundFee.TabStop = false;
+			this.tbGuestPriceGroundFee.Text = "0";
+			this.tbGuestPriceGroundFee.Value = 0D;
 			// 
 			// label15
 			// 
@@ -232,6 +347,19 @@
 			this.label15.TabIndex = 33;
 			this.label15.Text = "Pris grundavgift (ex moms)";
 			// 
+			// tbGuestPriceElectricityIncVAT
+			// 
+			this.tbGuestPriceElectricityIncVAT.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.tbGuestPriceElectricityIncVAT.Location = new System.Drawing.Point(221, 201);
+			this.tbGuestPriceElectricityIncVAT.Name = "tbGuestPriceElectricityIncVAT";
+			this.tbGuestPriceElectricityIncVAT.ReadOnly = true;
+			this.tbGuestPriceElectricityIncVAT.Size = new System.Drawing.Size(127, 20);
+			this.tbGuestPriceElectricityIncVAT.TabIndex = 32;
+			this.tbGuestPriceElectricityIncVAT.TabStop = false;
+			this.tbGuestPriceElectricityIncVAT.Text = "0";
+			this.tbGuestPriceElectricityIncVAT.Value = 0D;
+			// 
 			// label14
 			// 
 			this.label14.AutoSize = true;
@@ -241,6 +369,19 @@
 			this.label14.TabIndex = 31;
 			this.label14.Text = "Pris elförbrukning (ink moms)";
 			// 
+			// tbGuestPriceElectricity
+			// 
+			this.tbGuestPriceElectricity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.tbGuestPriceElectricity.Location = new System.Drawing.Point(221, 175);
+			this.tbGuestPriceElectricity.Name = "tbGuestPriceElectricity";
+			this.tbGuestPriceElectricity.ReadOnly = true;
+			this.tbGuestPriceElectricity.Size = new System.Drawing.Size(127, 20);
+			this.tbGuestPriceElectricity.TabIndex = 30;
+			this.tbGuestPriceElectricity.TabStop = false;
+			this.tbGuestPriceElectricity.Text = "0";
+			this.tbGuestPriceElectricity.Value = 0D;
+			// 
 			// label13
 			// 
 			this.label13.AutoSize = true;
@@ -249,6 +390,19 @@
 			this.label13.Size = new System.Drawing.Size(138, 13);
 			this.label13.TabIndex = 29;
 			this.label13.Text = "Pris elförbrukning (ex moms)";
+			// 
+			// tbGuestPeriodUsedkWh
+			// 
+			this.tbGuestPeriodUsedkWh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.tbGuestPeriodUsedkWh.Location = new System.Drawing.Point(221, 122);
+			this.tbGuestPeriodUsedkWh.Name = "tbGuestPeriodUsedkWh";
+			this.tbGuestPeriodUsedkWh.ReadOnly = true;
+			this.tbGuestPeriodUsedkWh.Size = new System.Drawing.Size(127, 20);
+			this.tbGuestPeriodUsedkWh.TabIndex = 28;
+			this.tbGuestPeriodUsedkWh.TabStop = false;
+			this.tbGuestPeriodUsedkWh.Text = "0";
+			this.tbGuestPeriodUsedkWh.Value = 0D;
 			// 
 			// label12
 			// 
@@ -287,6 +441,18 @@
 			this.label9.TabIndex = 25;
 			this.label9.Text = "Del i grundavgift";
 			// 
+			// tbGuestCurrentReadingkWh
+			// 
+			this.tbGuestCurrentReadingkWh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.tbGuestCurrentReadingkWh.Location = new System.Drawing.Point(221, 96);
+			this.tbGuestCurrentReadingkWh.Name = "tbGuestCurrentReadingkWh";
+			this.tbGuestCurrentReadingkWh.Size = new System.Drawing.Size(127, 20);
+			this.tbGuestCurrentReadingkWh.TabIndex = 8;
+			this.tbGuestCurrentReadingkWh.Text = "0";
+			this.tbGuestCurrentReadingkWh.Value = 0D;
+			this.tbGuestCurrentReadingkWh.TextChanged += new System.EventHandler(this.TextBoxChanged);
+			// 
 			// label8
 			// 
 			this.label8.AutoSize = true;
@@ -295,6 +461,18 @@
 			this.label8.Size = new System.Drawing.Size(197, 13);
 			this.label8.TabIndex = 23;
 			this.label8.Text = "Förbrukning nuvarande avläsning (kWh)";
+			// 
+			// tbGuestLastReadingkWh
+			// 
+			this.tbGuestLastReadingkWh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.tbGuestLastReadingkWh.Location = new System.Drawing.Point(221, 44);
+			this.tbGuestLastReadingkWh.Name = "tbGuestLastReadingkWh";
+			this.tbGuestLastReadingkWh.Size = new System.Drawing.Size(127, 20);
+			this.tbGuestLastReadingkWh.TabIndex = 6;
+			this.tbGuestLastReadingkWh.Text = "0";
+			this.tbGuestLastReadingkWh.Value = 0D;
+			this.tbGuestLastReadingkWh.TextChanged += new System.EventHandler(this.TextBoxChanged);
 			// 
 			// label7
 			// 
@@ -346,20 +524,20 @@
 			// btnSave
 			// 
 			this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnSave.Location = new System.Drawing.Point(396, 545);
+			this.btnSave.Location = new System.Drawing.Point(396, 569);
 			this.btnSave.Name = "btnSave";
 			this.btnSave.Size = new System.Drawing.Size(75, 23);
-			this.btnSave.TabIndex = 10;
+			this.btnSave.TabIndex = 12;
 			this.btnSave.Text = "Save";
 			this.btnSave.UseVisualStyleBackColor = true;
 			this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
 			// 
 			// btnNewBill
 			// 
-			this.btnNewBill.Location = new System.Drawing.Point(8, 545);
+			this.btnNewBill.Location = new System.Drawing.Point(22, 569);
 			this.btnNewBill.Name = "btnNewBill";
 			this.btnNewBill.Size = new System.Drawing.Size(75, 23);
-			this.btnNewBill.TabIndex = 12;
+			this.btnNewBill.TabIndex = 11;
 			this.btnNewBill.Text = "Ny räkning";
 			this.btnNewBill.UseVisualStyleBackColor = true;
 			this.btnNewBill.Click += new System.EventHandler(this.btnNewBill_Click);
@@ -367,7 +545,7 @@
 			// label19
 			// 
 			this.label19.AutoSize = true;
-			this.label19.Location = new System.Drawing.Point(8, 575);
+			this.label19.Location = new System.Drawing.Point(22, 599);
 			this.label19.Name = "label19";
 			this.label19.Size = new System.Drawing.Size(92, 13);
 			this.label19.TabIndex = 29;
@@ -377,7 +555,7 @@
 			// 
 			this.cbPreviousBills.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbPreviousBills.FormattingEnabled = true;
-			this.cbPreviousBills.Location = new System.Drawing.Point(106, 572);
+			this.cbPreviousBills.Location = new System.Drawing.Point(120, 596);
 			this.cbPreviousBills.Name = "cbPreviousBills";
 			this.cbPreviousBills.Size = new System.Drawing.Size(253, 21);
 			this.cbPreviousBills.TabIndex = 13;
@@ -415,187 +593,22 @@
 			this.tbTotalSumIncVAT.Text = "0";
 			this.tbTotalSumIncVAT.Value = 0D;
 			// 
-			// tbGuestTotalPriceIncVAT
+			// cbAddVAT
 			// 
-			this.tbGuestTotalPriceIncVAT.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.tbGuestTotalPriceIncVAT.Location = new System.Drawing.Point(221, 303);
-			this.tbGuestTotalPriceIncVAT.Name = "tbGuestTotalPriceIncVAT";
-			this.tbGuestTotalPriceIncVAT.ReadOnly = true;
-			this.tbGuestTotalPriceIncVAT.Size = new System.Drawing.Size(127, 20);
-			this.tbGuestTotalPriceIncVAT.TabIndex = 42;
-			this.tbGuestTotalPriceIncVAT.TabStop = false;
-			this.tbGuestTotalPriceIncVAT.Text = "0";
-			this.tbGuestTotalPriceIncVAT.Value = 0D;
-			// 
-			// tbGuestTotalPrice
-			// 
-			this.tbGuestTotalPrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.tbGuestTotalPrice.Location = new System.Drawing.Point(221, 277);
-			this.tbGuestTotalPrice.Name = "tbGuestTotalPrice";
-			this.tbGuestTotalPrice.ReadOnly = true;
-			this.tbGuestTotalPrice.Size = new System.Drawing.Size(127, 20);
-			this.tbGuestTotalPrice.TabIndex = 40;
-			this.tbGuestTotalPrice.TabStop = false;
-			this.tbGuestTotalPrice.Text = "0";
-			this.tbGuestTotalPrice.Value = 0D;
-			// 
-			// tbGuestPriceGroundFeeIncVAT
-			// 
-			this.tbGuestPriceGroundFeeIncVAT.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.tbGuestPriceGroundFeeIncVAT.Location = new System.Drawing.Point(221, 253);
-			this.tbGuestPriceGroundFeeIncVAT.Name = "tbGuestPriceGroundFeeIncVAT";
-			this.tbGuestPriceGroundFeeIncVAT.ReadOnly = true;
-			this.tbGuestPriceGroundFeeIncVAT.Size = new System.Drawing.Size(127, 20);
-			this.tbGuestPriceGroundFeeIncVAT.TabIndex = 36;
-			this.tbGuestPriceGroundFeeIncVAT.TabStop = false;
-			this.tbGuestPriceGroundFeeIncVAT.Text = "0";
-			this.tbGuestPriceGroundFeeIncVAT.Value = 0D;
-			// 
-			// tbGuestPriceGroundFee
-			// 
-			this.tbGuestPriceGroundFee.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.tbGuestPriceGroundFee.Location = new System.Drawing.Point(221, 227);
-			this.tbGuestPriceGroundFee.Name = "tbGuestPriceGroundFee";
-			this.tbGuestPriceGroundFee.ReadOnly = true;
-			this.tbGuestPriceGroundFee.Size = new System.Drawing.Size(127, 20);
-			this.tbGuestPriceGroundFee.TabIndex = 34;
-			this.tbGuestPriceGroundFee.TabStop = false;
-			this.tbGuestPriceGroundFee.Text = "0";
-			this.tbGuestPriceGroundFee.Value = 0D;
-			// 
-			// tbGuestPriceElectricityIncVAT
-			// 
-			this.tbGuestPriceElectricityIncVAT.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.tbGuestPriceElectricityIncVAT.Location = new System.Drawing.Point(221, 201);
-			this.tbGuestPriceElectricityIncVAT.Name = "tbGuestPriceElectricityIncVAT";
-			this.tbGuestPriceElectricityIncVAT.ReadOnly = true;
-			this.tbGuestPriceElectricityIncVAT.Size = new System.Drawing.Size(127, 20);
-			this.tbGuestPriceElectricityIncVAT.TabIndex = 32;
-			this.tbGuestPriceElectricityIncVAT.TabStop = false;
-			this.tbGuestPriceElectricityIncVAT.Text = "0";
-			this.tbGuestPriceElectricityIncVAT.Value = 0D;
-			// 
-			// tbGuestPriceElectricity
-			// 
-			this.tbGuestPriceElectricity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.tbGuestPriceElectricity.Location = new System.Drawing.Point(221, 175);
-			this.tbGuestPriceElectricity.Name = "tbGuestPriceElectricity";
-			this.tbGuestPriceElectricity.ReadOnly = true;
-			this.tbGuestPriceElectricity.Size = new System.Drawing.Size(127, 20);
-			this.tbGuestPriceElectricity.TabIndex = 30;
-			this.tbGuestPriceElectricity.TabStop = false;
-			this.tbGuestPriceElectricity.Text = "0";
-			this.tbGuestPriceElectricity.Value = 0D;
-			// 
-			// tbGuestPeriodUsedkWh
-			// 
-			this.tbGuestPeriodUsedkWh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.tbGuestPeriodUsedkWh.Location = new System.Drawing.Point(221, 122);
-			this.tbGuestPeriodUsedkWh.Name = "tbGuestPeriodUsedkWh";
-			this.tbGuestPeriodUsedkWh.ReadOnly = true;
-			this.tbGuestPeriodUsedkWh.Size = new System.Drawing.Size(127, 20);
-			this.tbGuestPeriodUsedkWh.TabIndex = 28;
-			this.tbGuestPeriodUsedkWh.TabStop = false;
-			this.tbGuestPeriodUsedkWh.Text = "0";
-			this.tbGuestPeriodUsedkWh.Value = 0D;
-			// 
-			// tbGuestCurrentReadingkWh
-			// 
-			this.tbGuestCurrentReadingkWh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.tbGuestCurrentReadingkWh.Location = new System.Drawing.Point(221, 96);
-			this.tbGuestCurrentReadingkWh.Name = "tbGuestCurrentReadingkWh";
-			this.tbGuestCurrentReadingkWh.Size = new System.Drawing.Size(127, 20);
-			this.tbGuestCurrentReadingkWh.TabIndex = 8;
-			this.tbGuestCurrentReadingkWh.Text = "0";
-			this.tbGuestCurrentReadingkWh.Value = 0D;
-			this.tbGuestCurrentReadingkWh.TextChanged += new System.EventHandler(this.TextBoxChanged);
-			// 
-			// tbGuestLastReadingkWh
-			// 
-			this.tbGuestLastReadingkWh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.tbGuestLastReadingkWh.Location = new System.Drawing.Point(221, 44);
-			this.tbGuestLastReadingkWh.Name = "tbGuestLastReadingkWh";
-			this.tbGuestLastReadingkWh.Size = new System.Drawing.Size(127, 20);
-			this.tbGuestLastReadingkWh.TabIndex = 6;
-			this.tbGuestLastReadingkWh.Text = "0";
-			this.tbGuestLastReadingkWh.Value = 0D;
-			this.tbGuestLastReadingkWh.TextChanged += new System.EventHandler(this.TextBoxChanged);
-			// 
-			// tbTotalSum
-			// 
-			this.tbTotalSum.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.tbTotalSum.Location = new System.Drawing.Point(174, 122);
-			this.tbTotalSum.Name = "tbTotalSum";
-			this.tbTotalSum.ReadOnly = true;
-			this.tbTotalSum.Size = new System.Drawing.Size(174, 20);
-			this.tbTotalSum.TabIndex = 22;
-			this.tbTotalSum.TabStop = false;
-			this.tbTotalSum.Text = "0";
-			this.tbTotalSum.Value = 0D;
-			// 
-			// tbPricePerkWh
-			// 
-			this.tbPricePerkWh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.tbPricePerkWh.Location = new System.Drawing.Point(174, 96);
-			this.tbPricePerkWh.Name = "tbPricePerkWh";
-			this.tbPricePerkWh.ReadOnly = true;
-			this.tbPricePerkWh.Size = new System.Drawing.Size(174, 20);
-			this.tbPricePerkWh.TabIndex = 20;
-			this.tbPricePerkWh.TabStop = false;
-			this.tbPricePerkWh.Text = "0";
-			this.tbPricePerkWh.Value = 0D;
-			// 
-			// tbTotalGroundFee
-			// 
-			this.tbTotalGroundFee.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.tbTotalGroundFee.Location = new System.Drawing.Point(174, 69);
-			this.tbTotalGroundFee.Name = "tbTotalGroundFee";
-			this.tbTotalGroundFee.Size = new System.Drawing.Size(294, 20);
-			this.tbTotalGroundFee.TabIndex = 3;
-			this.tbTotalGroundFee.Text = "0";
-			this.tbTotalGroundFee.Value = 0D;
-			this.tbTotalGroundFee.TextChanged += new System.EventHandler(this.TextBoxChanged);
-			// 
-			// tbTotalPriceElectricity
-			// 
-			this.tbTotalPriceElectricity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.tbTotalPriceElectricity.Location = new System.Drawing.Point(174, 43);
-			this.tbTotalPriceElectricity.Name = "tbTotalPriceElectricity";
-			this.tbTotalPriceElectricity.Size = new System.Drawing.Size(294, 20);
-			this.tbTotalPriceElectricity.TabIndex = 2;
-			this.tbTotalPriceElectricity.Text = "0";
-			this.tbTotalPriceElectricity.Value = 0D;
-			this.tbTotalPriceElectricity.TextChanged += new System.EventHandler(this.TextBoxChanged);
-			// 
-			// tbTotalUsedkWh
-			// 
-			this.tbTotalUsedkWh.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.tbTotalUsedkWh.Location = new System.Drawing.Point(174, 17);
-			this.tbTotalUsedkWh.Name = "tbTotalUsedkWh";
-			this.tbTotalUsedkWh.Size = new System.Drawing.Size(294, 20);
-			this.tbTotalUsedkWh.TabIndex = 1;
-			this.tbTotalUsedkWh.Text = "0";
-			this.tbTotalUsedkWh.Value = 0D;
-			this.tbTotalUsedkWh.TextChanged += new System.EventHandler(this.TextBoxChanged);
+			this.cbAddVAT.AutoSize = true;
+			this.cbAddVAT.Location = new System.Drawing.Point(22, 546);
+			this.cbAddVAT.Name = "cbAddVAT";
+			this.cbAddVAT.Size = new System.Drawing.Size(92, 17);
+			this.cbAddVAT.TabIndex = 10;
+			this.cbAddVAT.Text = "Lägg till moms";
+			this.cbAddVAT.UseVisualStyleBackColor = true;
+			this.cbAddVAT.CheckedChanged += new System.EventHandler(this.cbAddVAT_CheckedChanged);
 			// 
 			// ElectricBillsControl
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.Controls.Add(this.cbAddVAT);
 			this.Controls.Add(this.tbOCR);
 			this.Controls.Add(this.label20);
 			this.Controls.Add(this.cbPreviousBills);
@@ -608,7 +621,7 @@
 			this.Controls.Add(this.groupBox1);
 			this.MinimumSize = new System.Drawing.Size(480, 580);
 			this.Name = "ElectricBillsControl";
-			this.Size = new System.Drawing.Size(480, 604);
+			this.Size = new System.Drawing.Size(480, 631);
 			this.Load += new System.EventHandler(this.ElectricBillsControl_Load);
 			this.groupBox1.ResumeLayout(false);
 			this.groupBox1.PerformLayout();
@@ -666,5 +679,6 @@
 		private System.Windows.Forms.Button btnSaveToExcel;
 		private System.Windows.Forms.Label label20;
 		private System.Windows.Forms.TextBox tbOCR;
+		private System.Windows.Forms.CheckBox cbAddVAT;
 	}
 }

@@ -27,6 +27,17 @@ namespace ElectricBills {
 		#endregion
 
 		private Bill bill;
+		#region private double VAT
+		/// <summary>
+		/// Gets the VAT of the ElectricBillsControl
+		/// </summary>
+		/// <value></value>
+		private double VAT {
+			get {
+				return cbAddVAT.Checked ? 1.15 : 1.0;
+			}
+		}
+		#endregion
 
 		#region public ElectricBillsControl()
 		/// <summary>
@@ -69,6 +80,8 @@ namespace ElectricBills {
 				context.TreeNode.ContextMenu = null;
 			}
 			ContentPersistentForm.Settings.ActiveBillIndex = cbPreviousBills.SelectedIndex;
+			ContentPersistentForm.Settings[ "AddVAT" ] = cbAddVAT.Checked ? "true" : "false";
+			ContentPersistentForm.Settings.Save();
 		}
 		#endregion
 
@@ -82,15 +95,15 @@ namespace ElectricBills {
 			changed = true;
 			tbPricePerkWh.Value = tbTotalUsedkWh.Value > 0 ? tbTotalPriceElectricity.Value / tbTotalUsedkWh.Value : 0;
 			tbTotalSum.Value = tbTotalUsedkWh.Value * tbPricePerkWh.Value + tbTotalGroundFee.Value;
-			tbTotalSumIncVAT.Value = tbTotalSum.Value * 1.25;
+			tbTotalSumIncVAT.Value = tbTotalSum.Value * VAT;
 
 			tbGuestPeriodUsedkWh.Value = tbGuestCurrentReadingkWh.Value - tbGuestLastReadingkWh.Value;
 			tbGuestPriceElectricity.Value = tbGuestPeriodUsedkWh.Value * tbPricePerkWh.Value;
-			tbGuestPriceElectricityIncVAT.Value = tbGuestPriceElectricity.Value * 1.25;
+			tbGuestPriceElectricityIncVAT.Value = tbGuestPriceElectricity.Value * VAT;
 			tbGuestPriceGroundFee.Value = cbFeePart.SelectedIndex == 0 ? 0 : tbTotalGroundFee.Value * (1.0 / (cbFeePart.SelectedIndex * 1.0));
-			tbGuestPriceGroundFeeIncVAT.Value = tbGuestPriceGroundFee.Value * 1.25;
+			tbGuestPriceGroundFeeIncVAT.Value = tbGuestPriceGroundFee.Value * VAT;
 			tbGuestTotalPrice.Value = tbGuestPriceGroundFee.Value + tbGuestPriceElectricity.Value;
-			tbGuestTotalPriceIncVAT.Value = tbGuestTotalPrice.Value * 1.25;
+			tbGuestTotalPriceIncVAT.Value = tbGuestTotalPrice.Value * VAT;
 		}
 		#endregion
 		#region private void ElectricBillsControl_Load( object sender, EventArgs e )
@@ -105,6 +118,7 @@ namespace ElectricBills {
 			menuItem.Click += ExportAllToExcel;
 			menuItem = context.TreeNode.ContextMenu.MenuItems.Add( "Importera räkningar från Excel..." );
 			menuItem.Click += ImportFromExcel;
+			cbAddVAT.Checked = string.Equals( ContentPersistentForm.Settings[ "AddVAT" ], "true" );
 			LoadBills();
 		}
 		#endregion
@@ -443,6 +457,22 @@ namespace ElectricBills {
 			return str;
 		}
 		#endregion
+
+		private void cbAddVAT_CheckedChanged( object sender, EventArgs e ) {
+			VATRenameLabel( label3 );
+			VATRenameLabel( label4 );
+			VATRenameLabel( label5 );
+			VATRenameLabel( label10 );
+			VATRenameLabel( label11 );
+			VATRenameLabel( label13 );
+			VATRenameLabel( label15 );
+			VATRenameLabel( label17 );
+			TextBoxChanged( null, null );
+		}
+		private void VATRenameLabel( Label l ) {
+			string t = l.Text.Substring( 0, l.Text.IndexOf( "(" ) );
+			l.Text = t + (cbAddVAT.Checked ? "(ex. " : "(ink. ") + "moms)";
+		}
 	}
 	public class ElectricBillLoader : IFinanceControl {
 		private ElectricBillsControl ui;
